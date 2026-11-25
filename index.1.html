@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NOVA TEX | Soon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Cinzel:wght@500&family=Cormorant+Garamond:wght@500&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0D2A4C;--copper:#C6814C;--beige:#E0C58F}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:var(--navy);overflow:hidden}
+  main{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5vh;padding:2vh 4vw;text-align:center}
+  .logo{width:min(84vw,52vh*1.13,660px);overflow:visible}
+  .logo svg{width:100%;height:auto;overflow:visible;display:block}
+  .g{fill:none;stroke:#000;stroke-width:14;stroke-linecap:round}
+  .draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.2s ease-out forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  .fadein{opacity:0;animation:fade 1.2s 1.7s forwards}
+  @keyframes fade{to{opacity:1}}
+  #logoBird,#fly{opacity:0}
+  .soon{font-family:'Patrick Hand','Comic Sans MS',cursive;font-size:clamp(64px,min(22vw,15vh),210px);line-height:1;color:#000;opacity:0;letter-spacing:.02em}
+  .soon.on{opacity:1;animation:blink 4s infinite}
+  @keyframes blink{0%,49.99%{color:#000}50%,100%{color:var(--copper)}}
+  .tag{min-height:13vh;display:flex;flex-direction:column;gap:.6vh;align-items:center;margin-top:1vh}
+  .ar{font-family:'Cairo',sans-serif;font-weight:700;color:var(--beige);font-size:clamp(20px,min(4.4vw,3.6vh),40px);min-height:1.5em;direction:rtl}
+  .en{font-family:Arial,Helvetica,sans-serif;color:var(--beige);font-size:clamp(20px,min(4.6vw,3.8vh),44px);min-height:1.3em}
+  .caret{display:inline-block;width:2px;height:.9em;background:var(--beige);margin:0 3px;vertical-align:-.1em;animation:cb .7s steps(1) infinite}
+  @keyframes cb{50%{opacity:0}}
+</style>
+</head>
+<body>
+<main>
+  <div class="logo">
+    <svg viewBox="300 190 1130 1000" xmlns="http://www.w3.org/2000/svg" aria-label="Nova Tex">
+      <defs>
+        <clipPath id="clip"><path d="M505,890 C380,800 335,700 335,600 C335,380 580,205 866,205 C1150,205 1398,380 1398,600 C1398,700 1350,800 1225,890 Z"/></clipPath>
+      </defs>
+
+      <!-- bird passing BEHIND the globe -->
+      <g id="backLayer"></g>
+
+      <!-- globe (filled so it hides the bird behind it) -->
+      <path fill="#0D2A4C" d="M505,890 C380,800 335,700 335,600 C335,380 580,205 866,205 C1150,205 1398,380 1398,600 C1398,700 1350,800 1225,890 Z"/>
+      <g class="g" clip-path="url(#clip)">
+        <ellipse class="draw" pathLength="1" cx="866" cy="600" rx="125" ry="392"/>
+        <ellipse class="draw" pathLength="1" cx="866" cy="600" rx="383" ry="395"/>
+        <path class="draw" pathLength="1" d="M520,300 Q870,375 1240,320"/>
+        <path class="draw" pathLength="1" d="M375,455 Q870,520 1365,450"/>
+        <path class="draw" pathLength="1" d="M340,645 Q870,620 1395,648"/>
+        <path class="draw" pathLength="1" d="M440,830 Q880,730 1300,820"/>
+      </g>
+      <path class="g draw" pathLength="1" d="M505,890 C380,800 335,700 335,600 C335,380 580,205 866,205 C1150,205 1398,380 1398,600 C1398,700 1350,800 1225,890 Z"/>
+
+      <!-- logo text, tight under the globe like the original -->
+      <text class="fadein" x="866" y="1032" text-anchor="middle" font-family="Cinzel,serif" font-size="155" fill="#C6814C" textLength="890" lengthAdjust="spacing">NOVA TEX</text>
+      <text class="fadein" x="866" y="1135" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="66" fill="#C6814C" textLength="470" lengthAdjust="spacing">Textile Trading Co</text>
+
+      <!-- front layer: flying bird + final logo bird -->
+      <g id="frontLayer">
+        <g id="logoBird">
+          <path fill="#C6814C" d="M1290,220 C1340,225 1335,245 1300,260 C1180,305 1060,380 1035,500 C1030,525 1040,527 1050,520 C1120,495 1190,455 1230,420 C1270,385 1310,385 1328,405 C1330,415 1300,420 1260,445 C1230,465 1200,495 1175,510 C1050,600 900,690 740,775 C640,830 560,870 480,880 C520,860 640,810 720,740 C760,700 765,670 745,630 C710,590 640,555 540,552 C510,545 520,525 560,515 C650,495 740,520 800,605 C815,615 825,605 830,595 C890,450 1000,340 1120,270 C1190,235 1250,222 1290,220 Z"/>
+        </g>
+        <g id="fly">
+          <g id="wingFar"><path fill="#9C6234" d="M40,0 C20,-110 -80,-230 -240,-320 C-150,-330 -50,-280 20,-200 C60,-150 110,-80 120,-10 Z"/></g>
+          <path fill="#C6814C" d="M-310,8 C-210,-22 -80,-48 70,-44 C150,-42 215,-52 262,-40 C292,-60 322,-52 340,-36 C320,-26 300,-22 270,-14 C220,12 130,44 20,50 C-110,56 -230,40 -310,8 Z"/>
+          <g id="wingNear"><path fill="#C6814C" d="M40,0 C20,-110 -80,-230 -240,-320 C-150,-330 -50,-280 20,-200 C60,-150 110,-80 120,-10 Z"/></g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <div class="soon" id="soon">SOON</div>
+  <div class="tag"><div class="ar" id="ar"></div><div class="en" id="en"></div></div>
+</main>
+
+<script>
+(function(){
+  var back=document.getElementById('backLayer'), front=document.getElementById('frontLayer');
+  var fly=document.getElementById('fly'), logoBird=document.getElementById('logoBird');
+  var wN=document.getElementById('wingNear'), wF=document.getElementById('wingFar');
+  var C={x:907,y:550};                      // logo bird's home centre
+  var O={x:866,y:590,rx:640,ry:330};        // flight orbit around the globe
+  var T0=2300, DUR=8000, TH0=Math.PI/2, HOME_ROT=-37, K_END=1.35;
+  var clamp=function(v,a,b){return Math.min(b,Math.max(a,v))};
+  var smooth=function(t){t=clamp(t,0,1);return t*t*(3-2*t)};
+  var sine=function(t){return .5-.5*Math.cos(Math.PI*t)};
+  var start=null, done=false, inBack=false;
+
+  function frame(ts){
+    if(start===null)start=ts;
+    var el=ts-start-T0;
+    if(el<0){requestAnimationFrame(frame);return}
+    var u=clamp(el/DUR,0,1);
+    var p=sine(clamp(u/.78,0,1));            // orbit progress
+    var th=TH0-2*Math.PI*p;                  // clockwise full lap
+    var sn=Math.sin(th), cs=Math.cos(th);
+    var px=O.x+O.rx*cs, py=O.y+O.ry*sn;
+    var vx=O.rx*sn, vy=-O.ry*cs;             // velocity direction
+    var sg=vx>=0?1:-1;
+    var pitch=clamp(Math.atan2(vy*sg,Math.abs(vx))*180/Math.PI,-55,55);
+    var sx=clamp(vx/160,-1,1);
+    var k=.4+.1*sn;                          // slightly bigger when in front
+    var s=smooth((u-.78)/.22);               // settle phase
+    var x=px+(C.x-px)*s, y=py+(C.y-py)*s;
+    var rot=pitch+(HOME_ROT-pitch)*s;
+    sx=sx+(1-sx)*s;
+    k=k+(K_END-k)*s;
+    fly.setAttribute('transform','translate('+x+' '+y+') rotate('+rot+') scale('+(sx*k)+' '+k+')');
+
+    // wing flapping (slows down while settling)
+    var ph=el/1000*2*Math.PI*2.3*(1-.6*s);
+    var amp=1-.7*s;
+    var f=-15+60*(1+Math.sin(ph))*amp+ (1-amp)*20;
+    wN.setAttribute('transform','translate(-10 -34) rotate('+f+')');
+    wF.setAttribute('transform','translate(-30 -30) rotate('+(f*.9+10)+')');
+
+    // depth: behind the globe on the far side of the orbit
+    var behind=(sn<0)&&u<.78;
+    if(behind!==inBack){inBack=behind;(behind?back:front).appendChild(fly)}
+
+    // fade in at start, crossfade into the logo bird at the end
+    var cf=smooth((u-.9)/.1);
+    fly.style.opacity=Math.min(1,u/.06)*(1-cf);
+    logoBird.style.opacity=cf;
+
+    if(u<1){requestAnimationFrame(frame)}
+    else{fly.style.opacity=0;logoBird.style.opacity=1;if(!done){done=true;afterLogo()}}
+  }
+  requestAnimationFrame(frame);
+
+  /* ---------- After logo: SOON blink + typewriter ---------- */
+  var arEl=document.getElementById('ar'), enEl=document.getElementById('en');
+  var AR='إبداعك يبدأ من هنا', EN='Your creativity starts here';
+  var timers=[], caret='<span class="caret"></span>';
+  function clearAll(){timers.forEach(clearTimeout);timers=[]}
+  function typeLine(el,text,speed,cb){
+    var i=0;
+    (function step(){
+      el.innerHTML=text.slice(0,i)+caret;
+      if(i<text.length){i++;timers.push(setTimeout(step,speed))}
+      else{timers.push(setTimeout(function(){el.textContent=text;cb&&cb()},300))}
+    })();
+  }
+  function runType(){
+    clearAll();arEl.textContent='';enEl.textContent='';
+    typeLine(arEl,AR,110,function(){typeLine(enEl,EN,65)});
+  }
+  function afterLogo(){
+    var soon=document.getElementById('soon');
+    soon.style.transition='opacity .8s';soon.classList.add('on');
+    setTimeout(function(){runType();setInterval(runType,7000)},700);
+  }
+})();
+</script>
+</body>
+</html>
